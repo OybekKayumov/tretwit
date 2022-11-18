@@ -1,0 +1,19 @@
+<% provide(:title, "Home") %>
+
+<title><%= yield(:title) %> | Ruby on Rails Tutorial Sample 
+App</title>
+
+<div class="center jumbotron">
+  <h1>Welcome to the Tretwit App</h1>
+
+  <h2>
+    This is the home page for the
+    <a href="">Tretwit</a>
+    application.
+  </h2>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails.svg", alt: "Rails logo", width: "200"), "https://rubyonrails.org/" %>
+
