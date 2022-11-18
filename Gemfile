@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 gem "dotenv-rails"
+gem "bootstrap-sass"
 
 gem "rails", "~> 7.0.4"
 
