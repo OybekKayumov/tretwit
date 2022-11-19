@@ -3,9 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 gem "dotenv-rails"
-gem "bootstrap-sass"
 
 gem "rails", "~> 7.0.4"
+gem "bootstrap-sass"
 
 gem "sprockets-rails"
 
@@ -18,6 +18,7 @@ gem "jbuilder"
 # gem "kredis"
 
 # gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1"
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
@@ -54,3 +55,4 @@ group :production do
   gem "pg", "~> 1.1"
   gem "rails_12factor"
 end 
+
