@@ -1,6 +1,6 @@
 # tretwit
 
-# Ruby on Rails Social Media application 
+# Ruby on Rails Social Media App 
 This is the sample application for the
 [*Ruby on Rails social media app*] 
 
