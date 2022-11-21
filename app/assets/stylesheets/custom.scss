@@ -3,6 +3,11 @@
 
 /* mixins, variables, etc. */
 $gray-medium-light: #eaeaea;
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
 
 /* universal */
 body {
@@ -130,10 +135,26 @@ aside {
     }
   }
 }
+
 .gravatar {
   float: left;
   margin-right: 10px;
 }
+
 .gravatar_edit {
   margin-top: 15px;
+}
+
+/* forms */
+input, textarea, select, .uneditable-input { 
+  border: 1px solid #bbb;
+  width: 100%; 
+  margin-bottom: 15px; 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+ 
+input {
+    height: auto !important; 
 }
