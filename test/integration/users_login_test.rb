@@ -18,7 +18,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
 
-  test "login with valid information followed by logout" do
+  test "login with valid information" do
     post login_path, params: { session: { email: @user.email, password: 'password' }}
     assert_redirected_to @user
     follow_redirect!
