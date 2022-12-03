@@ -6,6 +6,9 @@ gem "dotenv-rails"
 
 gem "rails", "~> 7.0.4"
 gem "bootstrap-sass"
+gem "faker"
+gem "will_paginate"
+gem "will_paginate-bootstrap"
 
 gem "sprockets-rails"
 
