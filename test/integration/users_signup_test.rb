@@ -1,20 +1,20 @@
 require "test_helper"
 
-class UsersSignupTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+class UsersSignup < ActionDispatch::IntegrationTest
+
   def setup
     ActionMailer::Base.deliveries.clear
   end
+end
 
-  test 'invalid signup information' do
-    get signup_path
+class UsersSignupTest < UsersSignup
+
+  test "invalid signup information" do
     assert_no_difference 'User.count' do
-    post users_path, params: { user: { name:  "",
-                                       email: "user@invalid",
-                                       password:              "foo",
-                                       password_confirmation: "bar" } }
+      post users_path, params: { user: { name:  "",
+                                         email: "user@invalid",
+                                         password:              "foo",
+                                         password_confirmation: "bar" } }
     end
     assert_response :unprocessable_entity
     assert_template 'users/new'
@@ -23,30 +23,24 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   end
 
   test "valid signup information with account activation" do
-
-    # get signup_path
     assert_difference 'User.count', 1 do
-      post users_path, params: { user: { name: "Example User", 
+      post users_path, params: { user: { name:  "Example User",
                                          email: "user@example.com",
-                                         password: "password",
+                                         password:              "password",
                                          password_confirmation: "password" } }
     end
-    # follow_redirect!
-    # assert_template 'users/show'
-    # assert_not flash.empty?
-    # assert is_logged_in?
     assert_equal 1, ActionMailer::Base.deliveries.size
   end
 end
 
+class AccountActivationTest < UsersSignup
 
-class AccountActivationsTest < UsersSignupTest
   def setup
     super
-    post users_path, params: { user: { name: "Example User", 
+    post users_path, params: { user: { name:  "Example User",
                                        email: "user@example.com",
-                                        password: "password",
-                                        password_confirmation: "password" } }
+                                       password:              "password",
+                                       password_confirmation: "password" } }
     @user = assigns(:user)
   end
 
@@ -69,7 +63,7 @@ class AccountActivationsTest < UsersSignupTest
     assert_not is_logged_in?
   end
 
-  test "should be able to log in with valid activation token and email" do
+  test "should log in successfully with valid activation token and email" do
     get edit_account_activation_path(@user.activation_token, email: @user.email)
     assert @user.reload.activated?
     follow_redirect!
