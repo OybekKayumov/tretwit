@@ -20,10 +20,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # Handle a successful save.
-      reset_session
-      log_in @user
-      flash[:success] = "Welcome to the Tretwit App!"
-      redirect_to @user
+      # reset_session
+      # log_in @user
+      # flash[:success] = "Welcome to the Tretwit App!"
+      # redirect_to @user
+
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new', status: :unprocessable_entity
     end
