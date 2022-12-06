@@ -25,6 +25,7 @@ class UsersController < ApplicationController
       # flash[:success] = "Welcome to the Tretwit App!"
       # redirect_to @user
 
+      @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
