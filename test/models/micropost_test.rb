@@ -8,7 +8,7 @@ class MicropostTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
     # This code is not idiomatically correct.
-    @micropost = Microposts.new(content: "Lorem ipsum", user_id: @user.id)
+    @micropost = @user.microposts.build(content: "Lorem ipsum")
   end
 
   test "should be valid" do
