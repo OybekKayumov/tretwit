@@ -9,6 +9,7 @@ gem "bootstrap-sass"
 gem "faker"
 gem "will_paginate"
 gem "will_paginate-bootstrap"
+gem "active_storage_validations"
 
 gem "sprockets-rails"
 
