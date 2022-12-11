@@ -9,6 +9,8 @@ gem "bootstrap-sass"
 gem "faker"
 gem "will_paginate"
 gem "will_paginate-bootstrap"
+gem "active_storage_validations"
+gem "image_processing"
 
 gem "sprockets-rails"
 
@@ -57,5 +59,6 @@ end
 group :production do
   gem "pg", "~> 1.1"
   gem "rails_12factor"
+  gem "aws-sdk-s3", require: false
 end 
 
