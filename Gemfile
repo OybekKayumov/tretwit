@@ -10,6 +10,7 @@ gem "faker"
 gem "will_paginate"
 gem "will_paginate-bootstrap"
 gem "active_storage_validations"
+gem "image_processing"
 
 gem "sprockets-rails"
 
